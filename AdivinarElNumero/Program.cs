@@ -13,14 +13,25 @@ namespace AdivinarElNumero
 			do
 			{
 				Console.WriteLine("Elija un numero del 1 al 100: ");
-				respuesta = Convert.ToInt32(Console.ReadLine());
-				if (respuesta < num)
-					Console.WriteLine("El numero elegido es menor al numero aleatorio.");
-				else if (respuesta > num)
-					Console.WriteLine("El numero elegido es mayor al numero aleatorio.");
-				else
-					Console.WriteLine("El numero es el correcto :D.");
+				try
+				{
+					respuesta = Convert.ToInt32(Console.ReadLine());
+					if (respuesta < num)
+						Console.WriteLine("El numero " + respuesta + " es menor al numero aleatorio.\n");
+					else if (respuesta > num)
+						Console.WriteLine("El numero " + respuesta + " es mayor al numero aleatorio.\n");
+				}
+				catch (Exception ex)
+				{
+					Console.WriteLine("Valor fuera de rango.\n");
+					respuesta = -1;
+					Console.WriteLine(ex.GetHashCode());
+				}
+				
+					
 			} while (respuesta != num);
+
+			Console.WriteLine("El numero " + respuesta + " es el correcto :D.");
 		}
 	}
 }
