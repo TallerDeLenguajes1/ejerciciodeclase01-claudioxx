@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ManejoDeErrores
+namespace Problema01
 {
     class Program
     {
